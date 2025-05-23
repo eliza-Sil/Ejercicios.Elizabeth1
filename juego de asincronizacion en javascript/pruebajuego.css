@@ -1,0 +1,173 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 20px;
+}
+
+
+
+
+ .bien {
+     
+     overflow: hidden;
+     /* Ocultar desbordamiento */
+     white-space: nowrap;
+     margin-bottom: 50px;
+
+     
+     background: linear-gradient(90deg,
+     #cac987,
+     #ace445,
+     #12d9e7,
+     #00ff95,
+     #ff00c4,
+     #ff0000);
+     background-size: 400%;
+     word-spacing: 5px;
+     font-size: 70px;
+     font-family: Arial,sans-serif;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+    animation: animate 10s linear infinite;
+    
+ }
+
+ @keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+ }
+
+ @keyframes typing {
+     from {
+         width: 0;
+     }
+
+     to {
+         width: 98%;
+     }
+ }
+
+ @keyframes blink {
+     50% {
+         border-color: transparent;
+     }
+ }
+
+
+h2 {
+    color: #666;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    grid-gap: 15px;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.card {
+    width: 120px;
+    height: 120px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card-front {
+    background-color: #2196F3; /* Color azul para la parte oculta */
+}
+
+.card-back {
+    background-color: #fff; /* Fondo blanco para la imagen */
+    transform: rotateY(180deg);
+}
+
+.card-back img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Estilos para las tarjetas encontradas */
+.card.matched .card-inner {
+    pointer-events: none; /* No se puede hacer clic en las tarjetas emparejadas */
+    transform: rotateY(180deg); /* Mantenerlas giradas */
+}
+
+/* NUEVA CLASE: Estilo para las tarjetas emparejadas que se queden en verde */
+.card.matched-green .card-inner {
+    background-color: #00ff08; /* Color verde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 15px #00ff08; /* Sombra y brillo verde */
+}
+
+/* Asegurar que la imagen se vea sobre el fondo verde */
+.card.matched-green .card-back {
+    background-color: #86ec8a; /* La parte trasera también debe ser verde */
+}
+
+.neon-button {
+    margin-top: 30%;
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #0ff;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+ 
+}
+
+.neon-button:hover {
+  color: #000;
+  background: #0ff;
+  box-shadow: 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff inset;
+}
+
+ footer{
+    margin-top: 5%;
+    width: 100%;
+    text-align: center;
+ }
+
